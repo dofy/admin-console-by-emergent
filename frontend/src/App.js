@@ -322,8 +322,14 @@ function App() {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (validateForm()) {
+      console.log('Form submitted with data:', formData);
+      const isValid = validateForm();
+      console.log('Validation result:', isValid);
+      if (isValid) {
+        console.log('Calling onSubmit...');
         onSubmit(formData);
+      } else {
+        console.log('Validation failed, errors:', errors);
       }
     };
 
