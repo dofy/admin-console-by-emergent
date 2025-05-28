@@ -346,10 +346,10 @@ function App() {
               <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
               <input
                 type="text"
-                value={formData.name}
+                value={name}
                 onChange={(e) => {
                   console.log('Name input changed:', e.target.value);
-                  setFormData(prev => ({...prev, name: e.target.value}));
+                  setName(e.target.value);
                 }}
                 className={`w-full bg-gray-700 text-white border rounded-lg px-4 py-3 focus:outline-none ${
                   errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-purple-500'
@@ -362,10 +362,10 @@ function App() {
               <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
               <input
                 type="email"
-                value={formData.email}
+                value={email}
                 onChange={(e) => {
                   console.log('Email input changed:', e.target.value);
-                  setFormData(prev => ({...prev, email: e.target.value}));
+                  setEmail(e.target.value);
                 }}
                 className={`w-full bg-gray-700 text-white border rounded-lg px-4 py-3 focus:outline-none ${
                   errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-purple-500'
@@ -377,10 +377,10 @@ function App() {
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Role</label>
               <select
-                value={formData.role}
+                value={role}
                 onChange={(e) => {
                   console.log('Role input changed:', e.target.value);
-                  setFormData(prev => ({...prev, role: e.target.value}));
+                  setRole(e.target.value);
                 }}
                 className="w-full bg-gray-700 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500"
               >
