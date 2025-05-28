@@ -339,9 +339,11 @@ function App() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full bg-gray-700 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500"
-                required
+                className={`w-full bg-gray-700 text-white border rounded-lg px-4 py-3 focus:outline-none ${
+                  errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-purple-500'
+                }`}
               />
+              {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
             </div>
             
             <div>
@@ -350,9 +352,11 @@ function App() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full bg-gray-700 text-white border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500"
-                required
+                className={`w-full bg-gray-700 text-white border rounded-lg px-4 py-3 focus:outline-none ${
+                  errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-purple-500'
+                }`}
               />
+              {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
             </div>
             
             <div>
