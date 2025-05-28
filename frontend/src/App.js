@@ -299,23 +299,22 @@ function App() {
 
   // User Form Component
   const UserForm = ({ user, onSubmit, onCancel, title }) => {
-    const [formData, setFormData] = useState({
-      name: user?.name || '',
-      email: user?.email || '',
-      role: user?.role || 'user'
-    });
+    // Separate state for each field to avoid state update issues
+    const [name, setName] = useState(user?.name || '');
+    const [email, setEmail] = useState(user?.email || '');
+    const [role, setRole] = useState(user?.role || 'user');
     const [errors, setErrors] = useState({});
 
     const validateForm = () => {
       const newErrors = {};
       
-      if (!formData.name.trim()) {
+      if (!name.trim()) {
         newErrors.name = 'Name is required';
       }
       
-      if (!formData.email.trim()) {
+      if (!email.trim()) {
         newErrors.email = 'Email is required';
-      } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
         newErrors.email = 'Please enter a valid email address';
       }
       
@@ -325,6 +324,7 @@ function App() {
 
     const handleSubmit = (e) => {
       e.preventDefault();
+      const formData = { name, email, role };
       console.log('Form submitted with data:', formData);
       const isValid = validateForm();
       console.log('Validation result:', isValid);
