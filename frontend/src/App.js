@@ -312,7 +312,7 @@ function App() {
         <div className="bg-gray-800 p-8 rounded-xl shadow-xl max-w-md w-full mx-4">
           <h2 className="text-2xl font-bold text-white mb-6">{title}</h2>
           
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} noValidate className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
               <input
