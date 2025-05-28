@@ -40,6 +40,7 @@ function App() {
   };
 
   const handleAddUser = (userData) => {
+    console.log('handleAddUser called with:', userData);
     const newUser = {
       id: Date.now(),
       ...userData,
@@ -47,7 +48,9 @@ function App() {
       createdAt: new Date().toISOString().split('T')[0],
       lastLogin: 'Never'
     };
+    console.log('Adding new user:', newUser);
     setUsers([...users, newUser]);
+    console.log('Closing modal...');
     setShowModal(false);
   };
 
