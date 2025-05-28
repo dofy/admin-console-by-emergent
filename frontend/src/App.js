@@ -301,10 +301,30 @@ function App() {
       email: user?.email || '',
       role: user?.role || 'user'
     });
+    const [errors, setErrors] = useState({});
+
+    const validateForm = () => {
+      const newErrors = {};
+      
+      if (!formData.name.trim()) {
+        newErrors.name = 'Name is required';
+      }
+      
+      if (!formData.email.trim()) {
+        newErrors.email = 'Email is required';
+      } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+        newErrors.email = 'Please enter a valid email address';
+      }
+      
+      setErrors(newErrors);
+      return Object.keys(newErrors).length === 0;
+    };
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      onSubmit(formData);
+      if (validateForm()) {
+        onSubmit(formData);
+      }
     };
 
     return (
