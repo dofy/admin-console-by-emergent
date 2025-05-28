@@ -347,7 +347,10 @@ function App() {
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                onChange={(e) => {
+                  console.log('Name input changed:', e.target.value);
+                  setFormData(prev => ({...prev, name: e.target.value}));
+                }}
                 className={`w-full bg-gray-700 text-white border rounded-lg px-4 py-3 focus:outline-none ${
                   errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-purple-500'
                 }`}
@@ -360,7 +363,10 @@ function App() {
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                onChange={(e) => {
+                  console.log('Email input changed:', e.target.value);
+                  setFormData(prev => ({...prev, email: e.target.value}));
+                }}
                 className={`w-full bg-gray-700 text-white border rounded-lg px-4 py-3 focus:outline-none ${
                   errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-600 focus:border-purple-500'
                 }`}
